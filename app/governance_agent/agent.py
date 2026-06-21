@@ -1,17 +1,36 @@
 from google.adk.agents import Agent
-from tools.dataset_tools import get_metadata
+
+from tools.dataset_tools import (
+    get_metadata,
+    quality_check
+)
+
 root_agent = Agent(
     name="GovernanceCopilot",
-    model="gemini-2.5-flash-lite",
+
+    model="gemini-2.5-flash",
+
     instruction="""
     You are a Data Governance Copilot.
 
-    Help users:
-    - Analyze datasets
-    - Identify PII
-    - Assess data quality
-    - Generate governance recommendations
-    If anyone asks you to analyse sample.csv please get_metadata tool
+    For:
+    - analyze sample.csv
+    - metadata analysis
+
+    call get_metadata.
+
+    For:
+    - quality assessment
+    - data quality
+
+    call quality_check.
+
+    The dataset already exists locally.
+    Do not ask users to upload files.
     """,
-    tools=[get_metadata]
+
+    tools=[
+        get_metadata,
+        quality_check
+    ]
 )

@@ -3,7 +3,6 @@ import pandas as pd
 
 mcp = FastMCP("GovernanceMCP")
 
-
 @mcp.tool()
 def get_metadata(file_path: str):
 
@@ -13,7 +12,6 @@ def get_metadata(file_path: str):
         "rows": len(df),
         "columns": list(df.columns)
     }
-
 
 @mcp.tool()
 def quality_check(file_path: str):
