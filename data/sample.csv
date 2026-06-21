@@ -1,0 +1,5 @@
+customer_id,name,email,phone
+
+1,John,john@email.com,9999999999
+2,Jane,jane@email.com,8888888888
+3,,missing@email.com,7777777777
