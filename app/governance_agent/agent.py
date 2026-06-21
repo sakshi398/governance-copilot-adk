@@ -1,8 +1,9 @@
 from google.adk.agents import Agent
 
-from tools.dataset_tools import (
+from tools.mcp_tools import (
     get_metadata,
-    quality_check
+    quality_check,
+    pii_check,
 )
 
 root_agent = Agent(
@@ -31,6 +32,7 @@ root_agent = Agent(
 
     tools=[
         get_metadata,
-        quality_check
+        quality_check,
+        pii_check,
     ]
 )
